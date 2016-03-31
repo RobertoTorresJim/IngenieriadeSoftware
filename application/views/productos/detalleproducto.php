@@ -3,7 +3,7 @@
 	foreach ($productos->result() as $producto) { ?>
 	<ul>
 		<li><?= $producto->nombreProducto; ?><?= $producto->precioProducto; ?><?= $producto->descripcionProducto; ?></li>
-		<li><a href="productos.php"</a><p>regresar</p></li>
+		<li><a href="productos.php"</a><p>atras</p></li>
 	</ul>
 	
 	<?php } 
