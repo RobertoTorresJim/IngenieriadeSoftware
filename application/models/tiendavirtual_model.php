@@ -20,5 +20,29 @@ class Tiendavirtual_model extends CI_Model{
     if($query->num_rows() > 0) return $query;
     else return false;
   }
+  function obtenerProductos($id){
+    $this->db->where('idLinea',$id);
+   $query = $this->db->get('productos');
+   if($query->num_rows()>0) return $query;
+   else return false;
+  }
+  function obtenerProducto($id){
+   $this->db->where('idProducto',$id);
+   $query = $this->db->get('productos');
+   if($query->num_rows()>0) return $query;
+   else return false;
+  }
+  function obtenerCarrito(){
+    $query = $this->db->get('carrito');
+    if($query->num_rows() > 0) return $query;
+    else return false;
+  }
+  function agregarCarrito($data){
+    $query = $this->Tiendavirtual_model->obtenerCarrito();
+    if($query->num_rows() > 0){
+      $lastSesion = end($query);
+      $this->db->insert('carrito',array('costo'=>$data['precio'],'sesion'=>$lastSesion['sesion']));
+    }
+	}
 }
 ?>

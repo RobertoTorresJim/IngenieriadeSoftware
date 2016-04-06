@@ -11,7 +11,7 @@ class Productos extends CI_Controller {
 	}
 	function index(){
 		$data['segmento'] = $this->uri->segment(3);
-		$this->load->view('codigofacilito/headers');
+		$this->load->view('tiendavirtual/headers');
 		if(!$data['segmento']){
 			$data['productos'] = $this->productos_model->obtenerProductos();
 			$this->load->view('productos/producto',$data);
@@ -21,9 +21,6 @@ class Productos extends CI_Controller {
 
 			$this->load->view('productos/detalleproducto',$data);
 		}
-		
-		
-
 	}
 
 }

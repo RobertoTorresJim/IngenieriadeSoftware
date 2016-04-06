@@ -1,4 +1,4 @@
-<?= form_open("/lineas/recibirlineas") ?>
+<?= form_open("/tiendavirtual/recibirlineas/") ?>
 <?PHP
   $nombreLinea = array(
     'name' => 'nombreLinea',
@@ -18,6 +18,5 @@
 <br>
 <?= form_submit('','Subir linea') ?>
 <?= form_close() ?>
-
 </body>
 </html>
