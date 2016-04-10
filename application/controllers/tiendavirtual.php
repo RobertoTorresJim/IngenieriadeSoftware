@@ -44,10 +44,6 @@ class TiendaVirtual extends CI_COntroller{
     }
   }
 
-
-
-
-
   function nuevoCarrito(){
     $this->load->view('tiendavirtual/headers');
     $this->load->view('lineas/formulario');
@@ -60,5 +56,15 @@ class TiendaVirtual extends CI_COntroller{
     $this->tiendavirtual_model->crearLinea($data);
     $this->load->view('tiendavirtual/headers');
     $this->load->view('lineas/formulario');
+  }
+  function recibirCarrito(){
+    $data = array(
+      'idProducto'=>$this->prodcuto->post('idProducto'),
+      'cantidad'=>$this->cantidad->post('cantidad'),
+      'costo'=>$this->producto->post('costo')
+    );
+    $this->tiendavirtual_model->crearCarrito($data);
+    $this->load->view('tiendavirtual/headers');
+    $this->load->view('producto/detalleproducto');
   }
 }

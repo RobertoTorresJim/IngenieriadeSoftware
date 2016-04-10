@@ -9,6 +9,11 @@ class Tiendavirtual_model extends CI_Model{
   function crearLinea($data){
     $this->db->insert('lineas', array('nombreLinea'=> $data['nombreLinea'], 'cantidadArticulos'=> $data['cantidadArticulos']));
   }
+  function crearCarrito($data){
+    $this->db->insert('carrito', array('costo' => $data['precio']*$data['cantidad']));
+    $this->db->insert('venta', array('idProducto'=>$data['idProducto'], 'idCarrito'=>$data['idCarrito'],
+                                     'costoTotal'=>$data['precio']*$data['cantidadArticulos'],$data['cantidad']));
+  }
   function obtenerLineas(){
     $query = $this->db->get('lineas');
     if($query->num_rows() > 0) return $query;
